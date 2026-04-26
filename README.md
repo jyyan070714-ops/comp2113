@@ -5,7 +5,7 @@
 - Yan Jiayao (Github: jyyan070714-ops)
 - Wan Ziran (Github: zoey555101)
 - Sun Xiaosong (Github: Sun-xiaosong)
-- Zhang hongxiang (Github: Jamesss666)
+- Zhang Hongyi (Github: Jamesss666)
 - Yan Zihan (Github: yanzihan0320)
 
 ## Game Description
