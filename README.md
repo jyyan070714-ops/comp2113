@@ -77,3 +77,30 @@ The entire game runs in a command-line interface, with numerical menus for inter
    · Explicit deallocation: delete enemy; is called after combat resolution.
    · Encapsulated creation logic: createEnemy(EnemyID, difficulty) builds scaled enemy instances (enemy.cpp), while dynamic allocation controls lifetime at runtime.
    · This design ensures enemy objects exist only when needed during each encounter.
+
+## Compilation and Execution Instructions
+
+-Compilation Requirements
+Compiler: g++ with C++11 or higher support
+Operating System: Linux / macOS / Windows
+Dependencies: No external libraries, only standard library used.
+
+-Compilation Commands
+1.Navigate to the project directory by entering “cd /path/to/your/project”
+2.Enter “make” to compile.
+3.When compilation succeeds, enter “./game”. 
+Then the game starts to run and you will see the following main menu options:
+
+===== Slay the Spire Lite =====
+1. New Game  //which means start a fresh playthrough
+2. Continue Game  //which means load previously saved game
+3. Exit  // which means exit the game
+Choose:
+
+Choose for your convenience!
+
+-Gameplay Logic
+Navigate through nodes (combat, random events, rest sites) and ultimately defeat the final boss to win the game.
+
+-Auto-save
+As you enter the save point(when the screen shows “Game saved.”), the game progress will automatically be saved. You can exit the game instantly, and continue by choosing Continue Game in main menu.
