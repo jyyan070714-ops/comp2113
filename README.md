@@ -80,28 +80,28 @@ The entire game runs in a command-line interface, with numerical menus for inter
 
 ---
 
-### 4. File Input/Output
+4. File Input/Output
 
-This project satisfies the file input/output requirement through the save and load system.
+   This project satisfies the file input/output requirement through the save and load system.
 
-**Detailed feature scope**
-- The main file I/O code is implemented in `save.cpp` and declared in `save.h`.
-- The game uses C++ file streams from `<fstream>` to save and load player progress through an external text file named `savegame.txt`.
-- When the player finishes a map node, `game.cpp` calls `saveGame(player, currentNode + 1, gameComplete)`.
-- Inside `saveGame()`, an `ofstream` is used to write the player's current game state into `savegame.txt`.
-- The saved data includes the player's difficulty, HP, max HP, max energy, current map node, whether the game is completed, and the relics the player has obtained.
-
-**How the coding elements support this feature**
-- When the player chooses **Continue Game** from the main menu, `game.cpp` calls `loadGame()`.
-- Inside `loadGame()`, an `ifstream` is used to read data from `savegame.txt` and restore the player's previous progress.
-- The function validates the file contents, such as checking that HP values are valid and relic values are either `0` or `1`.
-- If the save file does not exist or contains invalid data, the game displays an error message and does not load the corrupted save.
+   - The main file I/O code is implemented in `save.cpp` and declared in `save.h`.
+   - The game uses C++ file streams from `<fstream>` to save and load player progress through an external text file named `savegame.txt`.
+   - When the player finishes a map node, `game.cpp` calls `saveGame(player, currentNode + 1, gameComplete)`.
+   - Inside `saveGame()`, an `ofstream` is used to write the player's current game state into `savegame.txt`.
+   - The saved data includes the player's difficulty, HP, max HP, max energy, current map node, whether the game is completed, and the relics the player has obtained.
+   - When the player chooses **Continue Game** from the main menu, `game.cpp` calls `loadGame()`.
+   - Inside `loadGame()`, an `ifstream` is used to read data from `savegame.txt` and restore the player's previous progress.
+   - The function also validates the file contents, such as checking that HP values are valid and relic values are either `0` or `1`.
+   - If the save file does not exist or contains invalid data, the game displays an error message and does not load the corrupted save.
+   - The project also uses `saveFileExists()` in `save.cpp`, which opens `savegame.txt` with an `ifstream` to check whether a save file is available.
 
 ---
 
-6. Program codes in multiple files
+5. Program codes in multiple files
 
-7. Multiple Difficulty Levels
+
+
+6. Multiple Difficulty Levels
 
 
 
