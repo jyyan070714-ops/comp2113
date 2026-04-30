@@ -78,6 +78,22 @@ The entire game runs in a command-line interface, with numerical menus for inter
    · Encapsulated creation logic: createEnemy(EnemyID, difficulty) builds scaled enemy instances (enemy.cpp), while dynamic allocation controls lifetime at runtime.
    · This design ensures enemy objects exist only when needed during each encounter.
 
+4. File input/output
+   · This project satisfies the file input/output requirement through the save and load system.
+   · The main file I/O code is implemented in `save.cpp` and declared in `save.h`. The game uses C++ file streams from `<fstream>` to save and load player progress through an external text file named `savegame.txt`.
+   · When the player finishes a map node, `game.cpp` calls `saveGame(player, currentNode + 1, gameComplete)`. Inside `saveGame()`, an `ofstream` is used to write the player's current game state into `savegame.txt`. The saved data includes the player's difficulty, HP, max HP, max energy, current map node, whether the game is completed, and the relics the player has obtained.
+   · When the player chooses "Continue Game" from the main menu, `game.cpp` calls `loadGame()`. Inside `loadGame()`, an `ifstream` is used to read data from `savegame.txt` and restore the player's previous progress. The function also validates the file contents, such as checking that HP values are valid and relic values are either `0` or `1`. If the save file does not exist or contains invalid data, the game displays an error message and does not load the corrupted save.
+
+
+Example save file content:
+
+6. Program codes in multiple files
+
+7. Multiple Difficulty Levels
+
+
+
+
 ## Compilation and Execution Instructions
 
 Compilation Requirements
