@@ -97,11 +97,50 @@ The entire game runs in a command-line interface, with numerical menus for inter
 
 ---
 
-5. Program codes in multiple files
+5. Program Codes in Multiple Files
 
+   This project satisfies the "program codes in multiple files" requirement because the program is divided into multiple `.cpp` and `.h` files instead of being written in a single file.
 
+   - `main.cpp` is used as the entry point of the program.
+   - `main.cpp` calls `runGame()` to start the game.
+   - The main game loop, menu system, new game logic, and continue game logic are implemented in `game.cpp` and declared in `game.h`.
+   - Different features of the game are separated into their own source and header files.
+   - `player.cpp` and `player.h` handle the player's data and actions, such as HP, energy, blocking, healing, and relic effects.
+   - `card.cpp` and `card.h` define the card system, including card information and card effects.
+   - `enemy.cpp` and `enemy.h` manage enemy data and enemy behavior.
+   - `combat.cpp` and `combat.h` control the battle system between the player and enemies.
+   - `map.cpp` and `map.h` handle the game route.
+   - `event.cpp` and `event.h` handle random events.
+   - `relic.cpp` and `relic.h` handle relic rewards.
+   - `save.cpp` and `save.h` handle saving and loading game progress.
+   
+   - This structure makes the project easier to read, maintain, and debug because each file has a clear responsibility.
+
+---
 
 6. Multiple Difficulty Levels
+
+   This project satisfies the "Multiple Difficulty Levels" requirement because the game allows the player to choose between three difficulty levels when starting a new game: Easy, Normal, and Hard.
+
+   - In `game.cpp`, the `newGame()` function displays a difficulty selection menu with three options: Easy, Normal, and Hard.
+   
+   - The player's choice is converted into a difficulty value and passed into `player.init(difficulty)`. This means the selected difficulty becomes part of the player's game state.
+   - The difficulty settings are defined in `common.h` using constant double arrays.
+   - `const double DIFFICULTY_HP_SCALE[] = {1.2, 1.0, 0.8};` controls the player's HP scaling.
+   - `const double DIFFICULTY_ENEMY_HP_SCALE[] = {0.8, 1.0, 1.4};` controls enemy HP scaling.
+   - `const double DIFFICULTY_ENEMY_DMG_SCALE[] = {0.8, 1.0, 1.3};` controls enemy damage scaling.
+   - These values make the game easier or harder depending on the selected mode.
+   
+   - In `player.cpp`, the player's maximum HP is scaled based on difficulty.
+   - Easy gives the player more HP, Normal keeps the default HP, and Hard gives the player less HP.
+   - 
+   - In `enemy.cpp`, enemy HP and enemy damage are also scaled based on difficulty.
+   - Easy makes enemies weaker, Normal keeps enemies at standard strength, and Hard makes enemies stronger by increasing their HP and damage.
+   
+   - The selected difficulty is also saved in `save.cpp` as part of the save file using `ofs << "difficulty " << player.difficulty << "\n";`.
+   - When loading a saved game, the difficulty value is read back and used again.
+   - This allows the game to continue with the same difficulty level the player originally selected.
+
 
 
 
