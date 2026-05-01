@@ -64,6 +64,7 @@ The entire game runs in a command-line interface, with numerical menus for inter
 4. File Input/Output
 
    This project satisfies the file input/output requirement through the save and load system.
+
    - The main file I/O code is implemented in `save.cpp` and declared in `save.h`.
    - The game uses C++ file streams from `<fstream>` to save and load player progress through an external text file named `savegame.txt`.
    - When the player finishes a map node, `game.cpp` calls `saveGame(player, currentNode + 1, gameComplete)`.
@@ -80,6 +81,7 @@ The entire game runs in a command-line interface, with numerical menus for inter
 5. Program Codes in Multiple Files
 
    This project satisfies the "program codes in multiple files" requirement because the program is divided into multiple `.cpp` and `.h` files instead of being written in a single file.
+
    - `main.cpp` is used as the entry point of the program.
    - `main.cpp` calls `runGame()` to start the game.
    - The main game loop, menu system, new game logic, and continue game logic are implemented in `game.cpp` and declared in `game.h`.
@@ -93,23 +95,33 @@ The entire game runs in a command-line interface, with numerical menus for inter
    - `relic.cpp` and `relic.h` handle relic rewards.
    - `save.cpp` and `save.h` handle saving and loading game progress.
    - This structure makes the project easier to read, maintain, and debug because each file has a clear responsibility.
+   
+   Therefore, the project meets the requirement by organizing the program into multiple source and header files.
 
 ---
 
 6. Multiple Difficulty Levels
 
    This project satisfies the "Multiple Difficulty Levels" requirement because the game allows the player to choose between three difficulty levels when starting a new game: Easy, Normal, and Hard.
+
    - In `game.cpp`, the `newGame()` function displays a difficulty selection menu with three options: Easy, Normal, and Hard.
-   - The player's choice is converted into a difficulty value and passed into `player.init(difficulty)`. This means the selected difficulty becomes part of the player's game state.
+   - The menu is shown using `cout << "1. Easy\n";`, `cout << "2. Normal\n";`, and `cout << "3. Hard\n";`.
+   - The player's choice is converted into a difficulty value and passed into `player.init(difficulty)`.
+   - This means the selected difficulty becomes part of the player's game state.
    - The difficulty settings are defined in `common.h` using constant double arrays.
    - `const double DIFFICULTY_HP_SCALE[] = {1.2, 1.0, 0.8};` controls the player's HP scaling.
    - `const double DIFFICULTY_ENEMY_HP_SCALE[] = {0.8, 1.0, 1.4};` controls enemy HP scaling.
    - `const double DIFFICULTY_ENEMY_DMG_SCALE[] = {0.8, 1.0, 1.3};` controls enemy damage scaling.
    - These values make the game easier or harder depending on the selected mode.
-   - In `player.cpp`, the player's maximum HP is scaled based on difficulty. Easy gives the player more HP, Normal keeps the default HP, and Hard gives the player less HP.
-   - In `enemy.cpp`, enemy HP and enemy damage are also scaled based on difficulty. Easy makes enemies weaker, Normal keeps enemies at standard strength, and Hard makes enemies stronger by increasing their HP and damage.
+   - In `player.cpp`, the player's maximum HP is scaled based on difficulty.
+   - Easy gives the player more HP, Normal keeps the default HP, and Hard gives the player less HP.
+   - In `enemy.cpp`, enemy HP and enemy damage are also scaled based on difficulty.
+   - Easy makes enemies weaker, Normal keeps enemies at standard strength, and Hard makes enemies stronger by increasing their HP and damage.
    - The selected difficulty is also saved in `save.cpp` as part of the save file using `ofs << "difficulty " << player.difficulty << "\n";`.
-   - When loading a saved game, the difficulty value is read back and used again. This allows the game to continue with the same difficulty level the player originally selected.
+   - When loading a saved game, the difficulty value is read back and used again.
+   - This allows the game to continue with the same difficulty level the player originally selected.
+   
+    Therefore, this project meets the multiple difficulty levels requirement because it provides three difficulty options and changes both player stats and enemy stats according to the selected difficulty.
 
 ---
 
