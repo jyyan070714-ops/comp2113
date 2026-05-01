@@ -3,6 +3,7 @@
 #include "common.h"
 #include <string>
 
+
 struct Node {
     NodeType type;
     int enemyId;

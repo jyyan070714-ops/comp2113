@@ -14,6 +14,7 @@ struct Enemy {
     int baseAttack;
  };
 
+
 Enemy createEnemy(EnemyID id, int difficulty);
 void enemyAction(Enemy& e, Player& p, NodeType type);
 void normalEnemyAction(Enemy& e, Player& p);

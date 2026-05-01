@@ -7,5 +7,3 @@
 bool combat(Player& player, Enemy& enemy, NodeType nodeType);
 void playerTurn(Player& player, Enemy& enemy);
 void displayCombatStatus(const Player& player, const Enemy& enemy, NodeType nodeType);
-
-
