@@ -20,7 +20,7 @@ void getRoute(Node route[], int size) {
 
     route[4].type = BOSS;
     route[4].enemyId = ENEMY_GOBLIN_BOSS;
-}
+ }
 
 string nodeTypeToString(NodeType type) {
     switch (type) {
@@ -37,4 +37,4 @@ string nodeTypeToString(NodeType type) {
     default:
         return "Unknown";
     }
-}
+ }
