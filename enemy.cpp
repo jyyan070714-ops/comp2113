@@ -2,7 +2,6 @@
 #include "player.h"
 #include <iostream>
 #include <cstdlib>
-
 using namespace std;
 
 Enemy createEnemy(EnemyID id, int difficulty) {
@@ -96,6 +95,7 @@ void bossEnemyAction(Enemy& e, Player& p) {
     e.specialCounter++;
     if (e.specialCounter % 3 == 0) {
         cout << e.name << " enrages! Attack power increased!\n";
+        e.attack += 6;
     }
     
     cout << e.name << " attacks for " << e.intentDamage << " damage!\n";

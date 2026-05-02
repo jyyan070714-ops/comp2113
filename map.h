@@ -1,15 +1,12 @@
 #pragma once
-
 #include "common.h"
 #include <string>
-
+#include <vector>
 
 struct Node {
     NodeType type;
     int enemyId;
 };
 
-void getRoute(Node route[], int size);
+std::vector<Node> getRoute();
 std::string nodeTypeToString(NodeType type);
-
-

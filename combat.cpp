@@ -16,7 +16,7 @@ void displayCombatStatus(const Player& player, const Enemy& enemy, NodeType node
     cout << "[" << enemy.name << "] HP: " << enemy.hp << "\n";
     printEnemyIntent(enemy, nodeType);
     cout << "============================\n";
- }
+}
 
 void playerTurn(Player& player, Enemy& enemy) {
     player.startTurn();
@@ -69,7 +69,7 @@ void playerTurn(Player& player, Enemy& enemy) {
         }
     }
     player.endTurn();
- }
+}
 
 bool combat(Player& player, Enemy& enemy, NodeType nodeType) {
     player.startCombat();
@@ -91,6 +91,7 @@ bool combat(Player& player, Enemy& enemy, NodeType nodeType) {
         }
         if (player.hp <= 0) {
             cout << "You have been defeated...\n";
+            player.endCombat();
             return false;
         }
 
@@ -98,9 +99,10 @@ bool combat(Player& player, Enemy& enemy, NodeType nodeType) {
         enemyAction(enemy, player, nodeType);
         if (player.hp <= 0) {
             cout << "You have been defeated...\n";
+            player.endCombat();
             return false;
         }
 
         roundCounter++;
     }
- }
+}
