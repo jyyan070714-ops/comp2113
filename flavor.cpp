@@ -42,7 +42,12 @@ static const vector<string> restFlavor = {
     "The distant wind sounds like a lullaby. You take a short nap.",
     "You sit on a rock and relax your tense nerves."
 };
-
+/**
+ * @brief Displays a random flavor text based on the given node type.
+ *        The flavor text is printed to the console with decorative asterisks.
+ * @param type The type of node (FIGHT, ELITE, BOSS, EVENT, REST). Determines which flavor pool to use.
+ * @return void
+ */
 void showFlavorText(NodeType type) {
     string text;
     switch (type) {
