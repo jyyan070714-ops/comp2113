@@ -14,9 +14,19 @@
 
 using namespace std;
 
-//Random Helper Functions 
+/**
+ * @brief Initializes the random number generator with a seed based on current time.
+ *        Call this once at the beginning of the program to ensure different random sequences.
+ * @param none
+ * @return void
+ */
 inline void initRandom() { srand(static_cast<unsigned int>(time(nullptr))); }
-
+/**
+ * @brief Generates a random integer within [min, max] (inclusive).
+ * @param min Minimum possible value.
+ * @param max Maximum possible value.
+ * @return int A random integer between min and max.
+ */
 inline int randomRange(int min, int max) {
     return min + rand() % (max - min + 1);
 }
@@ -120,7 +130,18 @@ const double DIFFICULTY_ENEMY_DMG_SCALE[] = {0.8, 1.0, 1.3};
 
 // Global Card Pool (for drawing)
 extern vector<CardID> globalCardPool;
+/**
+ * @brief Initializes the global card pool with the starting set of cards (basic + advanced).
+ *        Call this at the beginning of a new game.
+ * @param none
+ * @return void
+ */
 void initGlobalCardPool();
+/**
+ * @brief Adds a card to the global card pool, making it available for future draws.
+ * @param id The CardID of the card to add.
+ * @return void
+ */
 void addCardToGlobalPool(CardID id);
 
 #endif // COMMON_H
